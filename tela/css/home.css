@@ -1,0 +1,176 @@
+@import url("colors.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+main {
+  width: 86%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Botões */
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--primary);
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover {
+  background: var(--primary-dark);
+}
+.btn:focus-visible,
+select:focus-visible,
+.textarea:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+}
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  padding: 12px 24px;
+  border-radius: 14px;
+}
+.btn-block {
+  width: 100%;
+  font-size: 1.05rem;
+  padding: 16px 20px;
+  border-radius: 0;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Área central: configurações | botão | texto */
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 0.85fr) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.workspace-action {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+#settings-slot,
+#textbox-slot {
+  display: flex;
+}
+
+/* Cards (configurações e texto) */
+.card {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  border: 2px solid var(--highlight);
+  box-shadow: 0 8px 28px rgba(36, 61, 94, 0.08);
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+.card-title-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* ---------- Telas pequenas: layout em coluna, com rolagem ---------- */
+@media (max-width: 900px) {
+  main {
+    width: 92%;
+    padding-top: 24px;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .workspace-action {
+    padding: 0;
+    order: 3;
+  }
+  .textbox-card {
+    order: 2;
+  }
+}
+
+/* ---------- Desktop: tudo cabe na janela, sem rolagem ---------- */
+@media (min-width: 901px) and (min-height: 460px) {
+  body {
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  main {
+    flex: 1;
+    min-height: 0;
+    padding: clamp(10px, 2.6vh, 30px) 0 clamp(12px, 3vh, 36px);
+    gap: clamp(10px, 2.4vh, 28px);
+  }
+  .workspace {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+    gap: clamp(14px, 2vw, 24px);
+  }
+  .workspace-action {
+    padding-bottom: clamp(16px, 7vh, 60px);
+  }
+  .btn-pill {
+    font-size: clamp(1rem, 2.4vh, 1.25rem);
+    padding: clamp(8px, 1.6vh, 14px) clamp(18px, 2vh, 26px);
+  }
+  .btn-block {
+    padding: clamp(10px, 2vh, 16px) 20px;
+  }
+  .card {
+    min-height: 0;
+    padding: clamp(12px, 2.4vh, 22px) clamp(16px, 1.8vw, 24px)
+      clamp(14px, 2.6vh, 26px);
+  }
+  .card-title {
+    font-size: clamp(1.25rem, 3.6vh, 2rem);
+    margin-bottom: clamp(8px, 2.2vh, 24px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

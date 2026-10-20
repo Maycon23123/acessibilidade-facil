@@ -1,0 +1,81 @@
+@import url("colors.css");
+
+.dropzone {
+  border: 3px dashed var(--highlight);
+  border-radius: 22px;
+  background: #f6faff;
+  padding: 24px 24px 32px;
+  text-align: center;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.dropzone.is-dragover {
+  background: var(--surface-soft);
+  border-color: var(--primary);
+}
+.dropzone-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--secondary);
+}
+.dropzone-title h2 {
+  font-size: 2.1rem;
+}
+.dropzone-icon {
+  width: 52px;
+  height: 52px;
+  fill: var(--primary);
+}
+.dropzone-or {
+  margin: 4px 0 12px;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+.dropzone-file {
+  margin: 10px 0 0;
+  font-weight: 600;
+}
+.dropzone-file:empty {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .dropzone-title {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .dropzone-title h2 {
+    font-size: 1.5rem;
+  }
+  .dropzone-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (min-width: 901px) and (min-height: 460px) {
+  .dropzone {
+    padding: clamp(8px, 2.2vh, 26px) 24px clamp(10px, 2.8vh, 32px);
+  }
+  .dropzone-title {
+    gap: 14px;
+  }
+  .dropzone-title h2 {
+    font-size: clamp(1.3rem, 4vh, 2.1rem);
+  }
+  .dropzone-icon {
+    width: clamp(30px, 6vh, 52px);
+    height: clamp(30px, 6vh, 52px);
+  }
+  .dropzone-or {
+    margin: clamp(0px, 0.6vh, 4px) 0 clamp(4px, 1.6vh, 12px);
+    font-size: clamp(1rem, 2.6vh, 1.3rem);
+  }
+  .dropzone-file {
+    margin-top: 6px;
+    font-size: 0.9rem;
+  }
+}

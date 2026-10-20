@@ -1,0 +1,23 @@
+@import url("colors.css");
+
+.result {
+  background: var(--surface-soft);
+  color: var(--primary);
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  padding: 24px 16px;
+}
+
+@media (max-width: 900px) {
+  .result {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 901px) and (min-height: 460px) {
+  .result {
+    font-size: clamp(1.3rem, 4.2vh, 2.1rem);
+    padding: clamp(8px, 2.2vh, 24px) 16px;
+  }
+}

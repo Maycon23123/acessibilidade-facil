@@ -1,0 +1,30 @@
+<aside class="card settings-card">
+  <h2 class="card-title">
+    <svg class="settings-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M19.4 13a7.9 7.9 0 0 0 0-2l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.5a.5.5 0 0 0-.6-.2l-2.5 1a7.3 7.3 0 0 0-1.7-1l-.4-2.6a.5.5 0 0 0-.5-.4h-4a.5.5 0 0 0-.5.4l-.4 2.6a7.3 7.3 0 0 0-1.7 1l-2.5-1a.5.5 0 0 0-.6.2l-2 3.5a.5.5 0 0 0 .1.6L4.6 11a7.9 7.9 0 0 0 0 2l-2.1 1.6a.5.5 0 0 0-.1.6l2 3.5c.1.2.4.3.6.2l2.5-1c.5.4 1.1.7 1.7 1l.4 2.6c0 .2.3.4.5.4h4c.2 0 .5-.2.5-.4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.5 1c.2.1.5 0 .6-.2l2-3.5a.5.5 0 0 0-.1-.6zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"
+      />
+    </svg>
+    Configurações
+  </h2>
+
+  <form id="settings-form" class="settings-form" novalidate>
+    <label class="field">
+      <span>Papel:</span>
+      <select id="paper" name="paper"></select>
+    </label>
+
+    <label class="field">
+      <span>Contração:</span>
+      <select id="contraction" name="contraction"></select>
+    </label>
+
+    <label class="field">
+      <span>Margem:</span>
+      <select id="margin" name="margin"></select>
+    </label>
+
+    <button type="submit" class="btn btn-block">Salvar configurações</button>
+    <p id="settings-status" class="settings-status" aria-live="polite"></p>
+  </form>
+</aside>

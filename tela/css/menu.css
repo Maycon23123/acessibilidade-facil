@@ -1,0 +1,13 @@
+@import url("colors.css");
+
+#menu {
+  background-color: var(--secondary);
+  height: 70px;
+}
+
+@media (min-width: 901px) and (min-height: 460px) {
+  #menu {
+    flex: 0 0 auto;
+    height: clamp(36px, 7vh, 70px);
+  }
+}
