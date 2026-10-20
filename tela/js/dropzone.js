@@ -5,21 +5,89 @@ export function initDropzone(onText) {
   const button = document.getElementById("btn-select-file");
   const label = document.getElementById("file-name");
 
-  function read(file) {
+  
+  async function read(file) {
     if (!file) return;
-    const isText = file.type.startsWith("text/") || /\.(txt|md)$/i.test(file.name);
-    if (!isText) {
-      alert("Formato não suportado. Use um arquivo .txt ou .md.");
+
+    const name = file.name.toLowerCase();
+    const isText =
+      file.type.startsWith("text/") ||
+      /\.(txt|md)$/i.test(name);
+
+    const isPDF =
+      file.type === "application/pdf" ||
+      name.endsWith(".pdf");
+
+    const isWord =
+      file.type ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
+      name.endsWith(".docx");
+
+    if (!isText && !isPDF && !isWord) {
+      alert("Formato não suportado. Use TXT, MD, PDF ou DOCX.");
       return;
     }
-    const reader = new FileReader();
-    reader.onload = () => {
+
+    try {
+      let text = "";
+
+      if (isText) {
+        text = await file.text();
+
+      } else if (isPDF) {
+        if (!window.pdfjsLib) {
+          throw new Error("Biblioteca PDF.js não carregada.");
+        }
+
+        const buffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({
+          data: new Uint8Array(buffer)
+        }).promise;
+
+        const pages = [];
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+
+          pages.push(
+            content.items.map(item => item.str).join(" ")
+          );
+        }
+
+        text = pages.join("\n\n");
+
+      } else if (isWord) {
+        if (!window.mammoth) {
+          throw new Error("Biblioteca Mammoth não carregada.");
+        }
+
+        const buffer = await file.arrayBuffer();
+
+        const result = await mammoth.extractRawText({
+          arrayBuffer: buffer
+        });
+
+        text = result.value;
+      }
+
+      if (!text.trim()) {
+        alert(
+          "Não foi possível extrair texto. " +
+          "O arquivo pode estar vazio ou ser um PDF digitalizado."
+        );
+        return;
+      }
+
       label.textContent = file.name;
-      onText(String(reader.result));
-    };
-    reader.onerror = () => alert("Não foi possível ler o arquivo.");
-    reader.readAsText(file, "UTF-8");
+      onText(text);
+
+    } catch (error) {
+      console.error("Erro ao ler arquivo:", error);
+      alert("Não foi possível ler o arquivo.");
+    }
   }
+
 
   button.addEventListener("click", () => input.click());
   input.addEventListener("change", () => read(input.files[0]));
