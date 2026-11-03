@@ -15,7 +15,7 @@ O documento acadêmico segue o template institucional e as orientações da disc
   - Murilo Reis Schiavotto
   - Vinícius Simões Mendes Zanardo
 - **Orientação:** André e Antonio Cesar.
-- **Cliente ou parceiro:** associação parceira (_preencher com o nome público, se autorizado_)
+- **Cliente ou parceiro:** ASAC
 - **Disciplina/etapa:** PI
 - **Versão analisada:**(não sei oq colocaria aqui)
 - **Atualizado em:** 2026-10-27
@@ -124,4 +124,3 @@ Todo o código do projeto fica em [`application/`](application/). Consulte o REA
 
 ## Continuidade entre semestres
 
-_Se o projeto recebeu código, pesquisa ou documentos de uma etapa anterior, registre aqui a linha de base e consulte [continuidade](docs/continuidade/README.md). Se começou nesta etapa, registre que não há linha de base anterior._
