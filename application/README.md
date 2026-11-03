@@ -2,7 +2,7 @@
 
 Esta pasta contém o código da aplicação web do projeto **Acessibilidade fácil**: um programa que estima quantas folhas serão necessárias para imprimir um texto em braile, a partir de texto digitado ou de arquivos `.txt`, `.md`, `.pdf` e `.docx`.
 
-Atualmente a aplicação é **somente frontend** (HTML, CSS e JavaScript executados no navegador). Não há backend: todo o processamento do texto e o cálculo acontecem no próprio navegador, e nenhum dado do usuário é enviado a servidor.
+Atualmente a aplicação é **somente frontend** (HTML, CSS e JavaScript executados no navegador). Todo o processamento do texto e o cálculo acontecem no próprio navegador, e nenhum dado do usuário é enviado a servidor.
 
 ## Estrutura e responsabilidades
 
@@ -28,7 +28,7 @@ Não existem `backend/` nem `mobile/` neste momento. A interface é responsiva (
 | [Mammoth.js](https://github.com/mwilliamson/mammoth.js) | 1.8.0 | Extrair texto de arquivos `.docx` |
 | Open Sans (Google Fonts) | 400, 600, 700 | Fonte da interface |
 
-Como são carregadas por CDN, a leitura de PDF e DOCX e a fonte exigem conexão com a internet. Sem ela, arquivos `.txt`/`.md` e a digitação direta continuam funcionando, com a fonte padrão do navegador.
+Como são carregadas por CDN, a leitura de PDF e DOCX e a fonte exigem conexão com a internet. Sem ela, arquivos `.txt`/`.md` e a digitação direta continuam funcionando, com a fonte padrão do navegador. A instalação das bibliotecas externas no sistema para remoção da necessidade de conexão com a internet está sendo considerada.
 
 ## Como o cálculo funciona
 
@@ -48,7 +48,7 @@ Estado atual da interface: o resultado exibe apenas o total de páginas (`Estima
 
 | Ferramenta ou serviço | Versão utilizada | Como verificar |
 |---|---|---|
-| Navegador moderno com suporte a módulos ES (Chrome, Edge, Firefox ou Safari atuais) | A preencher pela equipe (versão em que a equipe testou) | Abrir `index.html` por um servidor local (ver abaixo) e verificar se a página carrega |
+| Navegador moderno com suporte a módulos ES (Chrome, Edge, Firefox ou Safari atuais) | A preencher pela equipe | Abrir `index.html` por um servidor local (ver abaixo) e verificar se a página carrega |
 | Servidor HTTP local para arquivos estáticos | Qualquer um. A equipe usa a extensão **Live Server** do VS Code | Ver seção de execução |
 | Conexão com a internet | Não aplicável | Necessária para PDF.js, Mammoth.js e fonte (CDN) |
 | Node.js | **Não é necessário hoje.** A equipe pretende usá-lo no servidor no futuro | `node -v` (somente se for usar para servir ou testar) |
@@ -79,7 +79,9 @@ Não há dependências a instalar (sem `package.json`).
     cd application
     python3 -m http.server 8080
 
-Depois acesse `http://localhost:8080`. Para encerrar, pressione `Ctrl+C`.
+Depois acesse `http://localhost:8080`. Para encerrar, pressione `Ctrl+C`.  
+
+A equipe discute gerar um arquivo instalador do o sistema ou alterar o funcionamento para não depender de um servidor local, visando facilitar a inicialização.
 
 **Validação manual (roteiro mínimo)**
 
