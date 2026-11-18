@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estimador de páginas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/menu.css" />
     <link rel="stylesheet" href="./css/dropzone.css" />
@@ -18,9 +12,12 @@
     <link rel="stylesheet" href="./css/result.css" />
 
     <!-- PDF.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="./libs/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "./libs/pdf.worker.min.js";
+    </script>
     <!-- Mammoth.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+    <script src="./libs/mammoth.browser.min.js"></script>
   </head>
   <body>
     <header id="menu"></header>
@@ -109,9 +106,9 @@
     </main>
 
     <script src="./models/settings.js"></script>
-	<script src="./models/braille.js"></script>
-	<script src="./js/settings.js"></script>
-	<script src="./js/dropzone.js"></script>
-	<script src="./js/main.js"></script>
+    <script src="./models/braille.js"></script>
+    <script src="./js/settings.js"></script>
+    <script src="./js/dropzone.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
