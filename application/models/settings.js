@@ -1,6 +1,6 @@
 // Configurações do estimador: opções, valores padrão e persistência.
 // Medidas de papel em centímetros.
-export default class Settings {
+class Settings {
   static STORAGE_KEY = "estimador:configuracoes";
 
   static PAPERS = {

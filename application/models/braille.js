@@ -1,12 +1,10 @@
-import Settings from "./settings.js";
-
 // Estimador de páginas em braille.
 // Premissas (ajuste conforme a sua realidade):
 //  - cela braille ≈ 0,6 cm de largura
 //  - linha ≈ 1,0 cm de altura (com espaço entre linhas)
 //  - maiúsculas e números ganham celas de sinal
 //  - Grau 2 (contraído) reduz as palavras em ~25%
-export default class BrailleEstimator {
+class BrailleEstimator {
   static CELL_WIDTH_CM = 0.6;
   static LINE_HEIGHT_CM = 1.0;
   static GRAU2_FACTOR = 0.75;

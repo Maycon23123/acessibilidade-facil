@@ -1,8 +1,6 @@
-import Settings from "../models/settings.js";
-
 // Preenche os selects, salva as configurações e devolve uma função
 // que lê os valores atuais.
-export function initSettings() {
+function initSettings() {
   const form = document.getElementById("settings-form");
   const status = document.getElementById("settings-status");
   const paper = document.getElementById("paper");

@@ -1,5 +1,5 @@
 // Área de arrastar e soltar / selecionar arquivo de texto.
-export function initDropzone(onText) {
+function initDropzone(onText) {
   const zone = document.getElementById("dropzone");
   const input = document.getElementById("file-input");
   const button = document.getElementById("btn-select-file");
